@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "register": "Sign up",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "languages": "Languages"
+  },
+  "login": {
+    "title": "Log in to your account",
+    "username": "Login",
+    "email": "Email",
+    "password": "Password",
+    "resetpassword": "Forgot password?",
+    "signin": "Sign in",
+    "newaccount": "Don't have an account?",
+    "register": "Sign up",
+    "error": {
+      "username": "Login required",
+      "password": "Password required",
+      "failure": "Invalid login or password"
+    }
+  },
+  "transroute": {
+    "welcome": "Welcome in EuroSPEDYTOR"
+  }
+}

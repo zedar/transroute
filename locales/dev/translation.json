@@ -1,0 +1,29 @@
+{
+    "menu": {
+        "lang": {
+            "pl": "Polski",
+            "en": "English",
+            "de": "Deutsh",
+            "dev": "menu.lang.dev"
+        },
+        "features": "menu.features",
+        "pricing": "menu.pricing",
+        "contact": "menu.contact",
+        "register": "menu.register",
+        "login": "menu.login"
+    },
+    "login": {
+        "title": "login.title",
+        "login": "login.login",
+        "email": "login.email",
+        "password": "login.password",
+        "resetpassword": "login.resetpassword",
+        "signin": "login.signin",
+        "newaccount": "login.newaccount",
+        "register": "login.register",
+        "error": {
+            "username": "login.error.username",
+            "password": "login.error.password"
+        }
+    }
+}

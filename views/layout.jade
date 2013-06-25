@@ -2,6 +2,33 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    block head
+      link(rel="stylesheet", href="/stylesheets/bootstrap_custom.css")
+      link(rel="stylesheet", href="/stylesheets/theme.css")
+    
+    link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic")
   body
+    a.scrolltop(href="#")
+      span up
+
+    // navigation bar
+    include includes/head
+    
     block content
+        
+    block scripts
+      script
+        var dojoConfig = {
+          async: true,
+          baseUrl: '/dojo/',
+          tlmSiblingOfDojo: false,  // top level paths are related to baseUrl and dojo.js location
+          packages: [
+            {name: 'dojo', location: 'dojo'},
+            //{name: 'dijit', location: 'dijit'},
+            {name: 'bootstrap', location: 'dojo-bootstrap'}
+          ]
+        };
+      script(src="/dojo/dojo/dojo.js")
+      include includes/head_js

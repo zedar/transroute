@@ -1,0 +1,5 @@
+script
+  require(['dojo/query', 'dojo/parser', 'bootstrap/Dropdown', 'dojo/domReady!'], function(query, parser) {
+    parser.parse();
+    query('.dropdown-toggle').dropdown();
+  });

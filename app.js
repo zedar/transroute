@@ -3,34 +3,57 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+var express = require("express")
+  , routes = require("./routes")
+  , user = require("./routes/user")
+  , http = require("http")
+  , path = require("path")
+  , i18n = require("i18next")
+  , passport = require("passport")
+  , auth = require("./auth")
+  , flash = require("connect-flash");
+
+// initialization of i18n localisation
+i18n.init({
+  lng: "pl",
+  saveMissing: true,
+  debug: false,
+  ignoreRoutes: ["images/", "public/", "css/", "js/"]
+});
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set("port", process.env.PORT || 3000);
+app.set("views", __dirname + "/views");
+app.set("view engine", "jade");
 app.use(express.favicon());
-app.use(express.logger('dev'));
+app.use(express.logger("dev"));
+app.use(express.cookieParser());
 app.use(express.bodyParser());
+app.use(express.session({secret: "transroute"}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.methodOverride());
+app.use(i18n.handle);
+app.use(flash());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/dojo", express.static(path.join(__dirname, "vendor/dojo")));
+
+// i18n add-on fo express.js
+
+i18n.registerAppHelper(app);
 
 // development only
-if ('development' == app.get('env')) {
+if ("development" == app.get("env")) {
   console.log("In development mode");
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+// define routes
+require("./routes")(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get("port"), function(){
+  console.log("Express server listening on port " + app.get("port"));
 });

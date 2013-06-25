@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "features": "Co oferujemy?",
+    "pricing": "Cennik",
+    "contact": "Kontakt",
+    "register": "Rejestracja",
+    "login": "Login",
+    "logout": "Wyloguj",
+    "languages": "Zmień język"
+  },
+  "login": {
+    "title": "Zaloguj się do swojego konta",
+    "username": "Login",
+    "email": "Email",
+    "password": "Hasło",
+    "resetpassword": "Zapomniałeś hasła?",
+    "signin": "Zaloguj",
+    "newaccount": "Nie masz konta? Zarejestruj się!",
+    "register": "Rejestracja",
+    "error": {
+      "username": "Wymagany login użytkownika",
+      "password": "Wymagane hasło użytkownika",
+      "failure": "Błędny login lub hasło użytkownika"
+    }
+  },
+  "transroute": {
+    "welcome": "Witamy w EuroSPEDYTOR"
+  }
+}

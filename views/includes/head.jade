@@ -1,0 +1,35 @@
+div.navbar.navbar-fixed-top
+  div.navbar-inner
+    div.container
+      a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand.scroller(data-section="body", href="/")
+        img(src="images/logo_1.png", alt="logo")
+      div.nav-collapse.collapse
+        ul.nav.pull-right
+          li
+            a.scroller(href="#", data-section="#features")= t("menu.features")
+          li
+            a.scroller(href="#", data-section="#pricing")= t("menu.pricing")
+          li
+            a.scroller(href="#", data-section="#footer")= t("menu.contact")
+          li
+            a.btn-header(href="/register", data-section="#footer")= t("menu.register")
+          if (usr)
+            li
+              a.btn-header(href="/logout", data-section="#footer")= t("menu.logout")
+          else
+            li
+              a.btn-header(href="/login", data-section="#footer")= t("menu.login")
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown")= lng
+              b.caret
+            ul.dropdown-menu
+              li
+                a#lang_pl(href="/?setLng=pl")= t("menu.lang.pl")
+              li
+                a#lang_en(href="/?setLng=en")= t("menu.lang.en")
+              li
+                a#lang_de(href="/?setLng=de")= t("menu.lang.de")
