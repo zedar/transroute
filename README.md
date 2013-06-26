@@ -121,4 +121,8 @@ Install additional library
 
 > $ npm install connect-flash
 
+## Add gzip for express.js requests
+Express.js has built in support for gzip-ing of request. Just add
+  app.use(express.compress());
+just after app.use(express.logger("dev"));
 
