@@ -22,12 +22,9 @@ html
       script
         var dojoConfig = {
           async: true,
-          baseUrl: '/dojo/',
-          tlmSiblingOfDojo: false,  // top level paths are related to baseUrl and dojo.js location
+          baseUrl: '/dojo/dojo/',
           packages: [
-            {name: 'dojo', location: 'dojo'},
-            //{name: 'dijit', location: 'dijit'},
-            {name: 'bootstrap', location: 'dojo-bootstrap'}
+            {name: 'bootstrap', location: '../dojo-bootstrap'}
           ]
         };
       script(src="/dojo/dojo/dojo.js")

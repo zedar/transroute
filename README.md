@@ -30,6 +30,24 @@ Goto appfog website, register, confirm registration. Then create new application
   http://eurospedytor.aws.af.cm/
 
 ### Prepare env for AppFog and app deployment
+Add port definition, specific to appfog to the app.js. The lates version of express.js add this port reference by default.
+Install tool for appfog
+
+> $ sudo gem install af
+
+Login to appfog
+
+> $ af login
+
+Update application with current source code
+
+> $ cd traceroute
+  $ af update eurospedytor
+
+Too see logs
+
+> $ af logs eurospedytor
+
 
 # Libraries
 ## i18n - many languages
