@@ -18,8 +18,18 @@ Initialize node.js project
 > $ npm install
 
 # Running instructions
+## Running locally
 In order to run project in development mode
 > $ nodemon app.js env=development
+
+## Running in the cloud
+We use appfog - it is free for small development.
+
+### AppFog account
+Goto appfog website, register, confirm registration. Then create new application with the name eurospedytor. AppFog generates new, empty application under the link:
+  http://eurospedytor.aws.af.cm/
+
+### Prepare env for AppFog and app deployment
 
 # Libraries
 ## i18n - many languages
