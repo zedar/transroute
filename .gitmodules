@@ -10,3 +10,6 @@
 [submodule "vendor/dojo/dijit"]
 	path = vendor/dojo/dijit
 	url = git://github.com/dojo/dijit.git
+[submodule "vendor/dojo/util"]
+	path = vendor/dojo/util
+	url = git://github.com/dojo/util.git
