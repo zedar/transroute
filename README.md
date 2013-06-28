@@ -126,3 +126,12 @@ Express.js has built in support for gzip-ing of request. Just add
   app.use(express.compress());
 just after app.use(express.logger("dev"));
 
+## IPAD - correction for dropdowns
+In order to make dropdowns working it is necessary to add piece of source code to require section.
+  
+  query('a.dropdown-toggle, .dropdown-menu a').on('touchstart', 
+    function(e) {
+      e.stopPropagation();
+    });
+
+
