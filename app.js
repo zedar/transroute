@@ -28,6 +28,8 @@ var app = express();
 app.set("port", process.env.VMC_APP_PORT || 3000);
 app.set("views", __dirname + "/views");
 app.set("view engine", "jade");
+app.use("/", express.static(path.join(__dirname, "public"))); // static resources has to be before session
+app.use("/dojo", express.static(path.join(__dirname, "vendor/dojo")));
 app.use(express.favicon());
 app.use(express.logger("dev"));
 app.use(express.compress());  // add gzip for express requests
@@ -40,8 +42,7 @@ app.use(express.methodOverride());
 app.use(i18n.handle);
 app.use(flash());
 app.use(app.router);
-app.use("/", express.static(path.join(__dirname, "public")));
-app.use("/dojo", express.static(path.join(__dirname, "vendor/dojo")));
+
 
 // i18n add-on fo express.js
 
