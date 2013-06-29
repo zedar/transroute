@@ -8,7 +8,7 @@ set -e
 UTILDIR=$(cd $(dirname $0) && pwd)
 BASEDIR=$(cd "$UTILDIR/../.." && pwd)
 SRCDIR="$BASEDIR/vendor/dojo"
-TOOLSDIR="$SRCDIR/dojo/util/buildscripts"
+TOOLSDIR="$SRCDIR/util/buildscripts"
 PROFILE="$BASEDIR/build/js/app.profile.js"
 RELEASEDIR="$BASEDIR/vendor/dojo-release"
 

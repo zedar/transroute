@@ -22,10 +22,13 @@ html
       script
         var dojoConfig = {
           async: true,
-          baseUrl: '/dojo/dojo/',
+          //baseUrl: '/dojo/dojo/',
+          baseUrl: '/dojo-release/dojo/',
           packages: [
-            {name: 'bootstrap', location: '../dojo-bootstrap'}
+            //{name: 'bootstrap', location: '../dojo-bootstrap'}
           ]
         };
-      script(src="/dojo/dojo/dojo.js")
-      include includes/head_js
+      //script(src="/dojo/dojo/dojo.js")
+      script(src="/dojo-release/dojo/dojo.js")
+      //include includes/head_js
+      include includes/head_release_js

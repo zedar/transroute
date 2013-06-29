@@ -18,11 +18,13 @@ var profile = (function() {
     ],
     // layers of modules
     layers: {
-      "bootstrap": {
+      "dojo-release/bootstrap-release": {
         include: [
-          "bootstrap",
-          "dojo/query",
-          "dojo/parser"
+          "bootstrap/Dropdown",
+          "bootstrap/Collapse",
+          "dojo/parser",
+          "dojo/_base/url",
+          "dojo/date/stamp"
         ]
       }
     },

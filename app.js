@@ -30,6 +30,7 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "jade");
 app.use("/", express.static(path.join(__dirname, "public"))); // static resources has to be before session
 app.use("/dojo", express.static(path.join(__dirname, "vendor/dojo")));
+app.use("/dojo-release", express.static(path.join(__dirname, "vendor/dojo-release")));
 app.use(express.favicon());
 app.use(express.logger("dev"));
 app.use(express.compress());  // add gzip for express requests
