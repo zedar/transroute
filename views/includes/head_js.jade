@@ -1,10 +1,18 @@
 script
-  require(['dojo/query', 'dojo/parser', 'bootstrap/Dropdown', 'bootstrap/Collapse', 'dojo/domReady!'], function(query, parser) {
+  require(['dojo/query', 'dojo/parser', 
+    'bootstrap/Dropdown', 
+    'bootstrap/Collapse',  
+    'bootstrap/Carousel',
+    'dojo/domReady!'], function(query, parser) {
     parser.parse();
     query('.dropdown-toggle').dropdown();
     query('.collapse').collapse();
 
     query('a.dropdown-toggle, .dropdown-menu a').on('touchstart', function(e) {
       e.stopPropagation();
+    });
+
+    query(".carousel").carousel({
+      interval: 10000
     });
   });

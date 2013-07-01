@@ -4,6 +4,34 @@ block append head
   link(rel="stylesheet", href="/stylesheets/animate.css")
 
 block append content
-
+  div#hero
+    div.container
+      div.row.animated.fadeInDown
+        div.span12
+          div#mainCarousel.carousel.slide
+            div.carousel-inner
+              <!-- slide1 -->
+              div.active.item.slide1
+                div.row
+                  div.span6
+                    img(src="/images/slideregister.png", alt="Registration")
+                  div.span4
+                    h2= t("index.slideregister.title")
+                    p= t("index.slideregister.text")
+                    a.btn.btn-success.btn-large(href="/register")= t("index.slideregister.action")
+              <!-- slide2 -->
+              div.item.slide2
+                div.row
+                  div.span4
+                    h2= t("index.slidewatch.title")
+                    p= t("index.slidewatch.text")
+                    a.btn.btn-success.btn-large(href="/watch")= t("index.slidewatch.action")
+                  div.span6.animated.fadeInDownBig
+                    img(src="/images/slidewatch.png", alt="Watch video")
+            a.carousel-control.left(href="#mainCarousel", data-slide="prev") &lsaquo;
+            a.carousel-control.right(href="#mainCarousel", data-slide="next") &rsaquo;
+  div#intro
+    div.container
+      h1= t("index.intro")
+      
 block append scripts
-  

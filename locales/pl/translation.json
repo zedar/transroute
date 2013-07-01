@@ -8,6 +8,19 @@
     "logout": "Wyloguj",
     "languages": "Zmień język"
   },
+  "index": {
+    "slideregister": {
+      "title": "Europejska giełda spedycyjna - znajdź przewoźnika, znajdź zlecenie",
+      "text": "Znajdź partnera, wynegocjuj warunki, zrealizuj zlecenie za potwierdzeniem",
+      "action": "Rejestracja"
+    },
+    "slidewatch": {
+      "title": "Szybka rejestracja, optymalne wyszukiwanie, potwierdzanie zleceń",
+      "text": "Zobacz prezentację systemu.",
+      "action": "Zobacz teraz"
+    },
+    "intro": "EuroSpedytor - twoją giełdą potwierdzonych zleceń spedycyjnych."
+  },
   "login": {
     "title": "Zaloguj się do swojego konta",
     "username": "Login",

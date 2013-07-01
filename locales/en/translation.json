@@ -8,6 +8,19 @@
     "logout": "Sign out",
     "languages": "Languages"
   },
+  "index": {
+    "slideregister": {
+      "title": "Euro spedition exchange",
+      "text": "Find carrier, negotiate terms and condition, do the order with confirmation",
+      "action": "Registration"
+    },
+    "slidewatch": {
+      "title": "Fast registration, optimal association, order confirmation",
+      "text": "Watch video tour of the system and see how easy can be transportation",
+      "action": "Watch it now"
+    },
+    "intro": "EuroSpedytor - your exchange of confirmed transportation orders."
+  },
   "login": {
     "title": "Log in to your account",
     "username": "Login",
