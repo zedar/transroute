@@ -19,7 +19,36 @@
       "text": "Watch video tour of the system and see how easy can be transportation",
       "action": "Watch it now"
     },
-    "intro": "EuroSpedytor - your exchange of confirmed transportation orders."
+    "intro": "EuroSpedytor - your exchange of confirmed transportation orders.",
+    "features": {
+      "title": "Features",
+      "1": {
+        "title": "Order and carriers searching",
+        "descr": "Once you register cargo you automatically get proposals of the best carriers. As carrier have unlimited search capabilities of cargos along the route, in the radius within the place, on the way within the radius."
+      },
+      "2": {
+        "title": "Messanger with an automatic translator",
+        "descr": "Talking with your possible partner you have the oportunity of automatic translation in several languages, yout have option to see the route on the map, you can get, save or print directions."
+      },
+      "3": {
+        "title": "Orders with confirmation",
+        "descr": "Once you agree to the order conditions you may receive an automatic order confirmation."
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "subtitle": "See all plan details here",
+      "commingsoon": "We are launching very soon..."
+    },
+    "footer": {
+      "contactus": "Contact Us",
+      "name": "Name",
+      "email": "Email",
+      "comments": "Comments",
+      "submit": "Send",
+      "social": "Social",
+      "copyright": "2013 - TransRoute"
+    }
   },
   "login": {
     "title": "Log in to your account",

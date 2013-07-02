@@ -847,7 +847,7 @@ input[type="color"]:focus,
 .i_shuffle, 
 .i_twitter, 
 .i_youtube{
-	background: url('../images/icons.png') no-repeat;
+	background: url('/images/icons.png') no-repeat;
 	display: inline-block;
 }
 .i_bars{

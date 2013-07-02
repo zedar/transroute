@@ -25,5 +25,36 @@
             "username": "login.error.username",
             "password": "login.error.password"
         }
+    },
+    "index": {
+        "features": {
+            "1": {
+                "title": "index.features.1.title",
+                "descr": "index.features.1.descr"
+            },
+            "2": {
+                "title": "index.features.2.title",
+                "descr": "index.features.2.descr"
+            },
+            "3": {
+                "title": "index.features.3.title",
+                "descr": "index.features.3.descr"
+            },
+            "title": "index.features.title"
+        },
+        "footer": {
+            "contactus": "index.footer.contactus",
+            "name": "index.footer.name",
+            "email": "index.footer.email",
+            "comments": "index.footer.comments",
+            "submit": "index.footer.submit",
+            "social": "index.footer.social",
+            "copyright": "index.footer.copyright"
+        },
+        "pricing": {
+            "title": "index.pricing.title",
+            "commingsoon": "index.pricing.commingsoon",
+            "subtitle": "index.pricing.subtitle"
+        }
     }
 }

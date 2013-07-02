@@ -6,7 +6,7 @@ block append head
 block append content
   div#hero
     div.container
-      div.row.animated.fadeInDown
+      div.row.animated.fadeInDown(style="height:340px;")
         div.span12
           div#mainCarousel.carousel.slide
             div.carousel-inner
@@ -33,5 +33,70 @@ block append content
   div#intro
     div.container
       h1= t("index.intro")
-      
+  div#features
+    div.container
+      h2.section_header
+        hr.left.visible-desktop
+        span
+          = t("index.features.title")
+        hr.right.visible-desktop
+      div.row
+        div.span4.feature
+          h3
+            i.icon-search
+            = t("index.features.1.title")
+          p.description= t("index.features.1.descr")
+        div.span4.feature
+          h3
+            i.icon-tasks
+            = t("index.features.2.title")
+          p.description= t("index.features.2.descr")
+        div.span4.feature
+          h3
+            i.icon-thumbs-up
+            = t("index.features.3.title")
+          p.description= t("index.features.3.descr")
+  div#pricing
+    div.container
+      h2.section_header
+          hr.left.visible-desktop
+          span= t("index.pricing.title")
+            small= t("index.pricing.subtitle")
+          hr.right.visible-desktop
+      div.row
+        div.span8.offset3.left
+          h2= t("index.pricing.commingsoon")
+  div#footer
+    div.container
+      div.row
+        div.span8
+          h3 &nbsp;
+        div.span4.contact_us
+          h3= t("index.footer.contactus")
+          form.form-horizontal
+            div.field
+              div.label_field
+                label(for="inputName")= t("index.footer.name")
+              input#inputName(type="text")
+            div.field
+              div.label_field
+                label(for="inputEmail")= t("index.footer.email")
+              input#inputEmail(type="text")
+            div.field
+              div.label_field
+                label(for="inputComments")= t("index.footer.comments")
+              input#inputComments(type="text")
+            button.btn(type="submit")= t("index.footer.submit")
+      hr
+      div.row.copyright
+        div.span5
+          h3= t("index.footer.social")
+          a.social.fb(href="#")
+            i.i_facebook
+          a.social.tw(href="#")
+            i.i_twitter
+          a.social.yt(href="#")
+            i.i_youtube
+        div.span2.offset5.copy
+          p= t("index.footer.copyright")
 block append scripts

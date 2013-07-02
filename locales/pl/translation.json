@@ -1,6 +1,6 @@
 {
   "menu": {
-    "features": "Co oferujemy?",
+    "features": "Cechy rozwiązania?",
     "pricing": "Cennik",
     "contact": "Kontakt",
     "register": "Rejestracja",
@@ -19,7 +19,36 @@
       "text": "Zobacz prezentację systemu.",
       "action": "Zobacz teraz"
     },
-    "intro": "EuroSpedytor - twoją giełdą potwierdzonych zleceń spedycyjnych."
+    "intro": "EuroSpedytor - twoją giełdą potwierdzonych zleceń spedycyjnych.",
+    "features": {
+      "title": "Cechy rozwiązania",
+      "1": {
+        "title": "Wyszukiwarka zleceń i przewoźników",
+        "descr": "Rejestrując ładunek automatycznie otrzymujesz propozycje przewoźników. Będąc przwoźnikiem masz niograniczone możliwości wyszukiwania ładunków wzdłuż trasy, w promieniu od miejsca, po drodze w promieniu od trasy."
+      },
+      "2": {
+        "title": "Komunikator z automatycznym translatorem",
+        "descr": "Rozmawiając z partnerem masz możliwość automatycznego tłumaczenia w kilku językach, widzisz trasę przewozu, otrzymujesz wskazówki dojazdu, zapisujesz lub drukujesz."
+      },
+      "3": {
+        "title": "Zlecenia z potwierdzeniem",
+        "descr": "Uzgadniając warunki przewozu możesz otrzymać automatyczne potwierdzenie zlecenia."
+      }
+    },
+    "pricing": {
+      "title": "Cennik",
+      "subtitle": "Zobacz kategorie cenowe",
+      "commingsoon": "Wkrótce otwarcie, bądźmy w kontakcie..."
+    },
+    "footer": {
+      "contactus": "Skontaktuj się z nami",
+      "name": "Imię i nazwisko",
+      "email": "Email",
+      "comments": "Komentarz",
+      "submit": "Wyslij",
+      "social": "Spłecznosć",
+      "copyright": "2013 - TransRoute"
+    }
   },
   "login": {
     "title": "Zaloguj się do swojego konta",

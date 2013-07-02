@@ -22,6 +22,7 @@ var profile = (function() {
         include: [
           "bootstrap/Dropdown",
           "bootstrap/Collapse",
+          "bootstrap/Carousel",
           "dojo/parser",
           "dojo/_base/url",
           "dojo/date/stamp"
