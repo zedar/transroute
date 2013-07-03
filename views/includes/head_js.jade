@@ -1,12 +1,15 @@
-script
+script.
   require(['dojo/query', 'dojo/parser', 
+    'bootstrap/Support',
     'bootstrap/Dropdown', 
     'bootstrap/Collapse',  
     'bootstrap/Carousel',
-    'dojo/domReady!'], function(query, parser) {
+    'dojo/domReady!'], function(query, parser, support) {
     parser.parse();
     query('.dropdown-toggle').dropdown();
-    query('.collapse').collapse();
+    query('.collapse').collapse({
+      toggle: false
+    });
 
     query('a.dropdown-toggle, .dropdown-menu a').on('touchstart', function(e) {
       e.stopPropagation();

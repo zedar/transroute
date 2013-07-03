@@ -4,42 +4,56 @@ block append head
   link(rel="stylesheet", href="/stylesheets/animate.css")
 
 block append content
-  div#hero
+  div#hero.hidden-phone
     div.container
-      div.row.animated.fadeInDown(style="height:340px;")
+      div.row.animated.fadeInDown
         div.span12
           div#mainCarousel.carousel.slide
             div.carousel-inner
               <!-- slide1 -->
               div.active.item.slide1
                 div.row
-                  div.span6
+                  div.span5
                     img(src="/images/slideregister.png", alt="Registration")
-                  div.span4
+                  div.span5
                     h2= t("index.slideregister.title")
                     p= t("index.slideregister.text")
                     a.btn.btn-success.btn-large(href="/register")= t("index.slideregister.action")
               <!-- slide2 -->
               div.item.slide2
                 div.row
-                  div.span4
+                  div.span5
                     h2= t("index.slidewatch.title")
                     p= t("index.slidewatch.text")
                     a.btn.btn-success.btn-large(href="/watch")= t("index.slidewatch.action")
-                  div.span6.animated.fadeInDownBig
+                  div.span5.animated.fadeInDownBig
                     img(src="/images/slidewatch.png", alt="Watch video")
             a.carousel-control.left(href="#mainCarousel", data-slide="prev") &lsaquo;
             a.carousel-control.right(href="#mainCarousel", data-slide="next") &rsaquo;
-  div#intro
+  div.hero-unit.visible-phone
+    div.container
+      div.row
+        img(src="/images/slideregister.png", alt="Registration")
+        p
+          strong= t("index.slideregister.title")
+        a.btn.btn-success.btn-block(href="/register")
+          strong= t("index.slideregister.action")
+        a.btn.btn-info.btn-block(href="/watch")
+          strong= t("index.slidewatch.action")
+  div#intro.hidden-phone
     div.container
       h1= t("index.intro")
   div#features
     div.container
-      h2.section_header
+      <!-- not visible on phone -->
+      h2.section_header.hidden-phone
         hr.left.visible-desktop
         span
           = t("index.features.title")
         hr.right.visible-desktop
+      <!-- visible on phone -->
+      h3.section_header.visible-phone
+        span= t("index.features.title")
       div.row
         div.span4.feature
           h3
@@ -58,20 +72,26 @@ block append content
           p.description= t("index.features.3.descr")
   div#pricing
     div.container
-      h2.section_header
+      <!-- not visible on phone -->
+      h2.section_header.hidden-phone
           hr.left.visible-desktop
           span= t("index.pricing.title")
             small= t("index.pricing.subtitle")
           hr.right.visible-desktop
-      div.row
+      <!-- visible on phone -->
+      h3.section_header.visible-phone
+        span= t("index.pricing.title")
+      div.row.hidden-phone
         div.span8.offset3.left
           h2= t("index.pricing.commingsoon")
+      div.row.visible-phone
+          strong= t("index.pricing.commingsoon")
   div#footer
     div.container
       div.row
-        div.span8
+        div.span6
           h3 &nbsp;
-        div.span4.contact_us
+        div.span6.contact_us
           h3= t("index.footer.contactus")
           form.form-horizontal
             div.field
@@ -90,7 +110,7 @@ block append content
       hr
       div.row.copyright
         div.span5
-          h3= t("index.footer.social")
+          h3.hidden-phone= t("index.footer.social")
           a.social.fb(href="#")
             i.i_facebook
           a.social.tw(href="#")
