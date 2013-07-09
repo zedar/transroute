@@ -34,8 +34,8 @@ block append content
     div.container
       div.row
         img(src="/images/slideregister.png", alt="Registration")
-        p
-          strong= t("index.slideregister.title")
+      div.row
+        h4= t("index.slideregister.title")
         a.btn.btn-success.btn-block(href="/register")
           strong= t("index.slideregister.action")
         a.btn.btn-info.btn-block(href="/watch")
@@ -52,7 +52,7 @@ block append content
           = t("index.features.title")
         hr.right.visible-desktop
       <!-- visible on phone -->
-      h3.section_header.visible-phone
+      h4.section_header.visible-phone
         span= t("index.features.title")
       div.row
         div.span4.feature
