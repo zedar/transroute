@@ -10,7 +10,8 @@
         "pricing": "menu.pricing",
         "contact": "menu.contact",
         "register": "menu.register",
-        "login": "menu.login"
+        "login": "menu.login",
+        "welcome": "menu.welcome"
     },
     "login": {
         "title": "login.title",
@@ -55,6 +56,20 @@
             "title": "index.pricing.title",
             "commingsoon": "index.pricing.commingsoon",
             "subtitle": "index.pricing.subtitle"
+        }
+    },
+    "wall": {
+        "communicator": {
+            "messages": {
+                "title": "wall.communicator.messages.title",
+                "message": "wall.communicator.messages.message",
+                "send": "wall.communicator.messages.send",
+                "from": "wall.communicator.messages.from",
+                "text": "wall.communicator.messages.text"
+            },
+            "users": {
+                "title": "wall.communicator.users.title"
+            }
         }
     }
 }

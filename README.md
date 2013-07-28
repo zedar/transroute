@@ -134,4 +134,57 @@ In order to make dropdowns working it is necessary to add piece of source code t
       e.stopPropagation();
     });
 
+## socket.io
+Socket.io is async communication between clients in the browser.
+> $ npm install socket.io
+Example and nice article describing chat implementation:
+http://www.williammora.com/2013/03/nodejs-tutorial-building-chatroom-with.html
+
+In app.js introduce two changes:
+1. just after var app = express(); load socket.io module
+  var server = http.createServer(app);
+  var io = require("socket.io").listen(server);
+2. At the end of app.js file change http.createServer(app).listen to just
+  server.listen(port)
+
+Socket.io adds additional context to the public area of the application. In the browser it is possible to get socket.io javascript file
+  http://localhost:3000/socket.io/socket.io.js
+Client distribution with minified file is placed in *node_modules/socket.io/node_modules/socket.io-client/dist*
+
+## session management and socket.io
+Express.js is based on the connect framework. In app.js it is possible to provide custom configuration of session store. If it is not provided express.js uses connect's MemoryStore. This type of store is good for single instance configuration. For more advanced configuration redis should be used (look at connect-redis).
+Session management is based on cookies. Connect framework contains utilities to manage (parse, decode) cookies.
+Socket.io is separate communication than http. In order to authorize socket.io connection it is needed to:
+1. add reference to libraries
+  connect, cookie (npm install connect, npm install cookie) 
+2. define session store in express configuration. In development MemoryStore could be used.
+  var MemoryStore = require("connect").session.MemoryStore;
+  app.sessionStore = new MemoryStore();
+  app.use(express.session({store: app.sessionStore, key: "express.sid", secret: app.sessionSecret}));
+3. configure authorization for socket.io (in ioroutes)
+
+## request authenticated and ajax call (POST, PUT, DELETE)
+If request is sent through the ajax call that requires authentication then in routes.js file in method ensureAuthenticated we have to add special logic:
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  else if (req.method === "POST" || req.method === "PUT" || req.method === "DELETE") {
+    res.send({redirect: "/login"});
+    return;
+  }
+We call send method on response object. This call just sends successfull response to the browser.
+Then on the browser side we have to check if *redirect* attribute is set. If yes we have to change location of our page.
+  if (result.redirect) {
+    window.location = result.redirect;
+  }
+
+## mongoose
+All data are stored in mongoDB database. We are going to connect to mongo through mongoose. This library gives raw functionality of mongodb but allows definition of schema too.
+> $ npm install mongoose
+
+## bcrypt
+Encryption of user password.
+> $ npm install bcrypt
+Description:
+http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/
 

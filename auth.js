@@ -61,5 +61,5 @@ passport.use(new LocalStrategy(
 ));
 
 module.exports = {
-
+  findByUserId: findByUserId
 };

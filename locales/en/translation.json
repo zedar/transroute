@@ -6,7 +6,8 @@
     "register": "Sign up",
     "login": "Sign in",
     "logout": "Sign out",
-    "languages": "Languages"
+    "languages": "Languages",
+    "welcome": "Start"
   },
   "index": {
     "slideregister": {
@@ -67,5 +68,19 @@
   },
   "transroute": {
     "welcome": "Welcome in EuroSPEDYTOR"
+  },
+  "wall": {
+    "communicator": {
+      "users": {
+        "title": "Online"
+      },
+      "messages": {
+        "title": "Messages",
+        "message": "Message",
+        "send": "Send",
+        "from": "From",
+        "text": "Message content"
+      }
+    }
   }
 }

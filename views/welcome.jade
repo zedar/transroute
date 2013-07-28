@@ -5,6 +5,30 @@ block append head
 block append content
   div.alert.alert-success
     strong= t("transroute.welcome")
-    "Server path: " #{url}  
+    "Server path: " #{url}
+  div.container
+    div.row
+      div.span10
+        div.row
+          div.span10
+            form.form-inline
+              legend= t("wall.communicator.messages.title")
+              textarea.input-xxlarge#message(rows="2", placeholder=t("wall.communicator.messages.message"))
+              &nbsp;
+              button.btn#sendmessage(type="submit")= t("wall.communicator.messages.send")
+        div.row
+          div.span10
+            table.table#messages
+              thead
+                tr
+                  th= t("wall.communicator.messages.from")
+                  th= t("wall.communicator.messages.text")
+              tbody#messages_table_body
+      div.span2
+        div.well
+          strong= t("wall.communicator.users.title")
+          div#onlineUsers
 
-block append scripts
+block append common_scripts
+  script(type="text/javascript", src="/socket.io/socket.io.js")
+      

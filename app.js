@@ -11,7 +11,8 @@ var express = require("express")
   , i18n = require("i18next")
   , passport = require("passport")
   , auth = require("./auth")
-  , flash = require("connect-flash");
+  , flash = require("connect-flash")
+  , MemoryStore = require("connect").session.MemoryStore;
 
 // initialization of i18n localisation
 i18n.init({
@@ -22,6 +23,13 @@ i18n.init({
 });
 
 var app = express();
+// session store support
+app.sessionSecret = "tr1nsr0t3";
+app.sessionStore = new MemoryStore();
+
+// socket.io support
+var server = http.createServer(app);
+var io = require("socket.io").listen(server);
 
 // all environments
 //app.set("port", process.env.PORT || 3000);
@@ -36,7 +44,7 @@ app.use(express.logger("dev"));
 app.use(express.compress());  // add gzip for express requests
 app.use(express.cookieParser());
 app.use(express.bodyParser());
-app.use(express.session({secret: "transroute"}));
+app.use(express.session({secret: app.sessionSecret, key: "express.sid", store: app.sessionStore}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.methodOverride());
@@ -57,7 +65,14 @@ if ("development" == app.get("env")) {
 
 // define routes
 require("./routes")(app);
+// define socket.io routes
+require("./ioroutes")(app, io);
 
-http.createServer(app).listen(app.get("port"), function(){
+// commented out because socket.io required faster creation of server.
+// http.createServer(app).listen(app.get("port"), function(){
+//   console.log("Express server listening on port " + app.get("port"));
+// });
+// listen with socket.io
+server.listen(app.get("port"), function(){
   console.log("Express server listening on port " + app.get("port"));
 });

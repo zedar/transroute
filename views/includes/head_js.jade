@@ -1,10 +1,17 @@
-script.
-  require(['dojo/query', 'dojo/parser', 
+script
+  require([
+    'dojo/_base/kernel',
+    'dojo/query', 
+    'dojo/parser',
+    'dojo/NodeList-dom',
+    'dojo/NodeList-html',
+    'dojo/store/JsonRest',
     'bootstrap/Support',
     'bootstrap/Dropdown', 
     'bootstrap/Collapse',  
     'bootstrap/Carousel',
-    'dojo/domReady!'], function(query, parser, support) {
+    'bootstrap/Tooltip',
+    'dojo/domReady!'], function(kernel, query, parser, NodeListDom, NodeListHtml, JsonRest, support) {
     parser.parse();
     query('.dropdown-toggle').dropdown();
     query('.collapse').collapse({
@@ -18,4 +25,70 @@ script.
     query(".carousel").carousel({
       interval: 10000
     });
+
+    query("#sendmessage").on("click", function(evt) {
+      evt.preventDefault();
+      query("#message").forEach(function(node) {
+        if (node.value !== "") {
+          jsonRest = new JsonRest({
+            target: "/message"
+          });
+          jsonRest.put({message: node.value}).then(function(result) {
+            if (result.redirect) {
+              window.location = result.redirect;
+            }
+          },
+          function(error) {
+            alert("MESSAGE POST ERROR: " + error);
+          });
+          node.value = "";
+          return true;
+        }
+        else {
+          console.log("Nothing to send");
+          return false;
+        }
+      });
+    });
+
+    if (kernel.global.io) {
+      var baseUrl = document.baseURI;
+      if (document.location.origin) {
+        baseUrl = document.location.origin;
+      }
+      var socket = io.connect(baseUrl);
+      console.log("SOCKET: ", socket);
+      var sessionId = null;
+      socket.on("connect", function() {
+        sessionId = socket.socket.sessionid;
+        socket.emit("userConnected", {sessionId: sessionId});
+      });
+      socket.on("newUserOnline", function(data) {
+        // update list of users
+        var connectedUsers = data.connectedUsers;
+        var ouNodeList = query("#onlineUsers");
+        ouNodeList.html("");
+        for (var i=0, count=connectedUsers.length; i<count; i++) {
+          var user = connectedUsers[i];
+          var c = "<span id='" + user.sessionId + "' data-toggle='tooltip' title='" + user.userEmail + "'>";
+          c += "<i class='icon-user'></i>&nbsp;";
+          c += user.userName;
+          c += "<br />";
+          c += "</span>"; 
+          ouNodeList.addContent(c);
+          query("#" + user.sessionId).tooltip();
+        }
+      });
+      socket.on("userOffline", function(data) {
+        query("#" + data.sessionId).orphan();
+      });
+      socket.on("newMessage", function(data) {
+        console.log("NEW MESSAGE: ", data);
+        var c = "<tr>";
+        c += "<td>" + data.from + "</td>";
+        c += "<td>" + data.message + "</td>";
+        c += "</tr>";
+        query("#messages_table_body").addContent(c, "first");
+      });
+    }
   });
