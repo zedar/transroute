@@ -24,7 +24,11 @@
         "register": "login.register",
         "error": {
             "username": "login.error.username",
-            "password": "login.error.password"
+            "password": "login.error.password",
+            "confirmpassword": "login.error.confirmpassword"
+        },
+        "confirm": {
+            "password": "login.confirm.password"
         }
     },
     "index": {
@@ -70,6 +74,22 @@
             "users": {
                 "title": "wall.communicator.users.title"
             }
+        }
+    },
+    "register": {
+        "password": "register.password",
+        "confirmpassword": "register.confirmpassword",
+        "error": {
+            "confirmPassword": "register.error.confirmPassword",
+            "registered": "register.error.registered"
+        },
+        "message": {
+            "registered": "register.message.registered"
+        }
+    },
+    "reqister": {
+        "error": {
+            "failure": "reqister.error.failure"
         }
     }
 }

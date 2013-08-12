@@ -16,6 +16,10 @@
     "cookie": "*",
     "socket.io": "*",
     "mongoose": "*",
-    "bcrypt": "*"
+    "bcrypt": "*",
+    "underscore": "*"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
   }
 }

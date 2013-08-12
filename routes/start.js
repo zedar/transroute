@@ -8,7 +8,8 @@ module.exports = {
     var lng = common.getCurrentLng(req);
     res.render("index", {
       title: "EuroSpedytor", 
-      lng: lng.i18n.t("menu.lang." + lng.lng),
+      lng: lng.lng,
+      lngTitle: lng.i18n.t("menu.lang." + lng.lng),
       usr: req.user ? req.user.username : null});
   },
 
@@ -25,7 +26,8 @@ module.exports = {
     
     res.render("login", {
       title: "EuroSpedytor", 
-      lng: lng.i18n.t("menu.lang." + lng.lng), 
+      lng: lng.lng,
+      lngTitle: lng.i18n.t("menu.lang." + lng.lng), 
       usr: req.user ? req.user.username : null,
       errorMessage: msg });
   },

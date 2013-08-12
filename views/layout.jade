@@ -13,8 +13,7 @@ html
     a.scrolltop(href="#")
       span up
 
-    // navigation bar
-    include includes/head
+    include includes/navbar
     
     block content
         
@@ -22,15 +21,22 @@ html
     
     block scripts
       script.
+        var lng = "!{lng}" || "pl";
+        lng += "-" + lng;
+        var action = "!{action}";
+
         var dojoConfig = {
           async: true,
-          baseUrl: '/dojo/dojo/',
-          //baseUrl: '/dojo-release/dojo/',
+          locale: lng,
+          //baseUrl: "/dojo/dojo/",
+          baseUrl: "/dojo-release/dojo/",
           packages: [
-            {name: 'bootstrap', location: '../dojo-bootstrap'}
+            //{name: "bootstrap", location: "../dojo-bootstrap"},
+            //{name: "app", location: "../../javascripts/app"}
           ]
         };
-      script(src="/dojo/dojo/dojo.js")
-      //script(src="/dojo-release/dojo/dojo.js")
-      include includes/head_js
+      //script(src="/dojo/dojo/dojo.js")
+      script(src="/dojo-release/dojo/dojo.js")
+      script(src="/javascripts/boot.js")
+      //include includes/head_js
       //include includes/head_release_js

@@ -1,0 +1,9 @@
+extends layout
+
+block append head  
+  link(rel="stylesheet", href="/stylesheets/signin.css")
+
+block append content
+  div.well
+    div.alert.alert-error
+      = error

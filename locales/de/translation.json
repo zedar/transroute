@@ -66,6 +66,28 @@
       "failure": "Invalid login or password"
     }
   },
+  "register": {
+    "message": {
+      "success": "<strong>Well done!</strong> We have just drop you an email, please check your mail to avtivate your account!",
+      "activated": "<strong>Warning!</strong> Your account has already been activated. Just head to the login page.",
+      "inprogress": "<strong>Warning!</strong> An email has been send before, please check your mail to activate your account. Note that you can only get another mail after some timeout. Thanks!",
+      "signupconfirmation": "Signup Confirmation",
+      "signupemail": "Your email account is: ",
+      "signupclick": "Click here to activate your account!"
+    },
+    "error": {
+      "username": "Login",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Password confirmation",
+      "failure": "<strong>Wrong registration data</strong>",
+      "save": "<strong>Database error!</strong>",
+      "missingtoken": "<strong>Error!</strong> Token not found. Where are u come from?",
+      "alreadyactivated": "<strong>Warning!</strong> Your account has already been activated. Just head to the login page.",
+      "alreadyregistered": "<strong>Warning!</strong> Please use another login and/or password. This is already in use.",
+      "nonuniqueuser": "<strong>Error!</strong> Non unique user."
+    }
+  },
   "transroute": {
     "welcome": "Wilkommen auf EuroSPEDYTOR"
   },

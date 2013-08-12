@@ -97,6 +97,14 @@
 	}
 }
 
+.help-inline-hidden {
+  display: none;
+}
+
+.alert-hidden {
+  display: none;
+}
+
 
 
 

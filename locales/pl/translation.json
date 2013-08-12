@@ -66,6 +66,28 @@
       "failure": "Błędny login lub hasło użytkownika"
     }
   },
+  "register": {
+    "message": {
+      "success": "<strong>Sukces!</strong> Sprawdź swój email w celu zakończenia procesu rejestracji!",
+      "activated": "<strong>Uwaga!</strong> Użytkownik zakończył proces aktywacji",
+      "inprogress": "<strong>Uwaga!</strong> Email aktywacyjny został wysłany. Ponowna rejestracja możliwa w czasie późniejszym",
+      "signupconfirmation": "Potwierdzenie rejestracji",
+      "signupemail": "Twój email: ",
+      "signupclick": "Kliknij w celu aktywacji konta!"
+    },
+    "error": {
+      "username": "Login",
+      "email": "Email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdzenie hasła",
+      "failure": "<strong>Błędnie wypełnione dane</strong>",
+      "save": "<strong>Błąd bazy danych!</strong>",
+      "missingtoken": "<strong>Błąd!</strong> Brak poprawnego tokena w wywołaniu. Brak możliwości potwierdzenia rejestracji.",
+      "alreadyactivated": "<strong>Uwaga!</strong> Konto zostało już aktywowane. Przejdź do logowania.",
+      "alreadyregistered": "<strong>Uwaga!</strong> Proszę wybrać inny login lub email. Ten jest już zajęty.",
+      "nonuniqueuser": "<strong>Błąd</strong> Użytkownik już istnieje!"
+    }
+  },
   "transroute": {
     "welcome": "Witamy w EuroSPEDYTOR"
   },

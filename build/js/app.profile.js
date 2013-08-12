@@ -14,18 +14,27 @@ var profile = (function() {
     packages: [
       {name: "dojo", location: "dojo"},
       {name: "dijit", location: "dijit"},
-      {name: "bootstrap", location: "dojo-bootstrap"}
+      {name: "dojox", location: "dojox"},
+      {name: "bootstrap", location: "dojo-bootstrap"},
+      {name: "app", location: "../../public/javascripts/app"}
     ],
+    //
+    localeList: "pl,en,de",
     // layers of modules
     layers: {
-      "dojo-release/bootstrap-release": {
+      "app/app-release": {
         include: [
           "bootstrap/Dropdown",
           "bootstrap/Collapse",
           "bootstrap/Carousel",
           "dojo/parser",
           "dojo/_base/url",
-          "dojo/date/stamp"
+          "dojo/date/stamp",
+          "dojo/i18n",
+          "app/App",
+          "app/register/nls/pl/RegisterPage",
+          "app/register/nls/en/RegisterPage",
+          "app/register/nls/de/RegisterPage"
         ]
       }
     },

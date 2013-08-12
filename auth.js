@@ -2,30 +2,20 @@
  * Configure passport.js authentication
  */
 var passport = require("passport"), 
-    LocalStrategy = require("passport-local").Strategy;
-
-// testing data for user authentication
-var users = [
-  {id: 1, username: "robert", password: "test", email: "zakrzewski.robert@gmail.com"},
-  {id: 2, username: "krzychu", password: "test", email: "krzychu@neostrada.pl"}
-];
+    LocalStrategy = require("passport-local").Strategy,
+    User = require("./models/user.js").User;
 
 function findByUserId(id, fn) {
-  for (var i=0, count=users.length; i<count; i++) {
-    if (users[i].id === id) {
-      return fn(null, users[i]);
-    }
-  }
-  return fn(new Error("user " + id + " does not exist"));
+  User.findOne({_id: id}, function(err, user) {
+    return fn(err, user);
+  });
+  //return fn(new Error("user " + id + " does not exist"));
 }
 
 function findByUsername(username, fn) {
-  for (var i=0, count=users.length; i<count; i++) {
-    if (users[i].username === username) {
-      return fn(null, users[i]);
-    }
-  }
-  return fn(null, null);
+  User.findOne({username: username}, function(err, user) {
+    fn(err, user);
+  });
 }
 
 // passport session setup
@@ -34,9 +24,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  findByUserId(id, function(err, user) {
-    done(err, user);
-  });
+  findByUserId(id, done);
 });
 
 // define local strategy for passport
@@ -44,18 +32,25 @@ passport.use(new LocalStrategy(
   function(username, password, done) {
     // async verification
     process.nextTick(function() {
-      findByUsername(username, function(err, user) {
+      User.findOne({username: username}, function(err, user) {
         if (err) {
           return done(err);
         }
         if (!user) {
           return done(null, false, {message: "unknown user " + username});
         }
-        if (user.password !== password) {
-          return done(null, false, {message: "invalid password"});
-        }
-        return done(null, user);
-      });
+        user.comparePassword(password, function(err, isMatch) {
+          if (err) {
+            return done(err);
+          }
+          if (isMatch) {
+            return done(null, user);
+          }
+          else {
+            return done(null, false, {message: "invalid password"});
+          }
+        });
+      })
     });
   }
 ));

@@ -188,3 +188,11 @@ Encryption of user password.
 Description:
 http://codetheory.in/using-the-node-js-bcrypt-module-to-hash-and-safely-store-passwords/
 
+## nodemailer
+Use this library to send emails like a registration confirmation email or reset password email.
+Library uses SMTP and other protocols to send emaile.
+It is very easy to send emaile via gmail service.
+Another mailing service is https://postmarkapp.com with 10000 free emails.
+> $ npm install nodemailer
+
+

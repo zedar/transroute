@@ -2,6 +2,7 @@
  * Define context for routes
  */
 var start = require("./routes/start.js"),
+    register = require("./routes/register.js"),
     transroute = require("./routes/transroute.js"),
     messages = require("./routes/messages.js"),
     passport = require("passport");
@@ -31,6 +32,10 @@ module.exports = function(app) {
 
   app.get("/logout", start.logout);
 
+  app.get("/register", register.show);
+  app.post("/register", register.checkUserRegistered, register.checkActivationStatus, register.register);
+  app.get("/confirm", register.ensureNotSpam, register.confirm);
+  
   app.get("/welcome", ensureAuthenticated, transroute.welcome);
 
   app.post("/message", ensureAuthenticated, messages.message);
