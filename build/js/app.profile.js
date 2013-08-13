@@ -18,9 +18,11 @@ var profile = (function() {
       {name: "bootstrap", location: "dojo-bootstrap"},
       {name: "app", location: "../../public/javascripts/app"}
     ],
-    //
+    // include this resource files for flattening
     localeList: "pl,en,de",
-    // layers of modules
+    // layers of modules. IMPORTANT: once you use nls then it is important to prefix layer (that containes custom modules) with the same prefix as it is defined in source files
+    // Without this approach build system returns errors
+    // IMPORTANT #2: to limit resource loading it is possible to include resources in minified javascripts.
     layers: {
       "app/app-release": {
         include: [

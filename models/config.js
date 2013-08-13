@@ -13,10 +13,42 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     }
 });
 
+// configure reference to mongodb depending if it is local installation or AppFrog
+if (process.env.VCAP_SERVICES) {
+  var env = JSON.parse(process.env.VCAP_SERVICES);
+  var mongo = env["mongodb-1.8"][0]["credentials"];
+}
+else {
+  var mongo = {
+    "hostname": "localhost",
+    "port": 27017,
+    "username": "",
+    "password": "",
+    "name": "",
+    "db": "transroute"
+  }
+}
+
+function generateMongoUrl(mongo) {
+  mongo.hostname = (mongo.hostname || "localhost");
+  mongo.port = (mongo.port || 27017);
+  mongo.db = (mongo.db || "transroute");
+
+  if (mongo.username && mongo.password) {
+    return "mongodb://" + mongo.username + ":" + mongo.password + "@" + mongo.hostname + ":" + mongo.port + "/" + mongo.db; 
+  }
+  else {
+    return "mongodb://" + mongo.hostname + ":" + mongo.port + "/" + mongo.db; 
+  }
+}
+
+var mongodburl = generateMongoUrl(mongo);
+console.log("DATABASE URL: ", mongodburl);
+
 module.exports = {
   db: {
-    development: "mongodb://localhost/transroute",
-    test: "mongodb://localhost/transroute-test"
+    development: mongodburl,
+    test: mongodburl
   },
   mailer: {
     email: authEmail

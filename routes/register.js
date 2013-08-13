@@ -64,6 +64,7 @@ module.exports = {
         return next();
       }
       else {
+        console.error(__filename + ": Username or email already in use");
         return res.json(401, {error: lng.i18n.t("register.error.alreadyregistered")});
       }
       
