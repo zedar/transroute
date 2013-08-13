@@ -104,7 +104,8 @@ module.exports = {
     }
 
     if (missingAttrs.length > 0) {
-      var error = lng.i18n.t("register.error.failure") + ": [" + missingAttrs.join(", ") + "]";
+      var error = lng.i18n.t("register.error.missingattributes") + ": [" + missingAttrs.join(", ") + "]";
+      console.error(__filename + ": " + error);
       return res.json(401, {error: error});
     }
 
@@ -118,7 +119,7 @@ module.exports = {
     });
     userActivation.save(function(err, data) {
       if (err) {
-        console.log(err);
+        console.log(__filename + ": " + err);
         return res.json(400, {message: lng.i18n.t("register.error.save")});
       }
       // get current server path
@@ -151,6 +152,7 @@ module.exports = {
         return next(err);
       }
       else if (!ua) {
+        console.error(__filename + ": Missing token"); 
         res.render("error", {error: lng.i18n.t("register.error.missingtoken")});
         return;
       }
@@ -170,13 +172,14 @@ module.exports = {
               return next(err);
             }
             else if (data) {
+              console.error(__filename + ": Non unique user name");
               res.render("error", {error: lng.i18n.t("register.error.nonuniqueuser")});
               return;
             }
             else {
               user.save(function(err) {
                 if (err) {
-                  console.log(err);
+                  console.log(__filename + ": " + err);
                   res.render("error", {error: lng.i18n.t("register.error.save")});
                   return;
                 }
@@ -193,7 +196,6 @@ module.exports = {
               });
             }
           });
-          
         }
       }
     });

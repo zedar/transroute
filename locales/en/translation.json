@@ -80,12 +80,12 @@
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Password confirmation",
-      "failure": "<strong>Wrong registration data</strong>",
-      "save": "<strong>Database error!</strong>",
+      "missingattributes": "<strong>Missing attributes</strong>",
+      "save": "<strong>Unable to register new user.</strong>",
       "missingtoken": "<strong>Error!</strong> Token not found. Where are u come from?",
       "alreadyactivated": "<strong>Warning!</strong> Your account has already been activated. Just head to the login page.",
-      "alreadyregistered": "<strong>Warning!</strong> Please use another login and/or password. This is already in use.",
-      "nonuniqueuser": "<strong>Error!</strong> Non unique user."
+      "alreadyregistered": "<strong>Warning!</strong> Unable to register new user.",
+      "nonuniqueuser": "<strong>Error!</strong> Unable to register new user."
     }
   },
   "transroute": {

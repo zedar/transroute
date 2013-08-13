@@ -80,12 +80,12 @@
       "email": "Email",
       "password": "Hasło",
       "confirmPassword": "Potwierdzenie hasła",
-      "failure": "<strong>Błędnie wypełnione dane</strong>",
-      "save": "<strong>Błąd bazy danych!</strong>",
+      "missingattributes": "<strong>Brak wymaganych danych</strong>",
+      "save": "<strong>Brak możliwości rejestracji użytkownika</strong>",
       "missingtoken": "<strong>Błąd!</strong> Brak poprawnego tokena w wywołaniu. Brak możliwości potwierdzenia rejestracji.",
       "alreadyactivated": "<strong>Uwaga!</strong> Konto zostało już aktywowane. Przejdź do logowania.",
-      "alreadyregistered": "<strong>Uwaga!</strong> Proszę wybrać inny login lub email. Ten jest już zajęty.",
-      "nonuniqueuser": "<strong>Błąd</strong> Użytkownik już istnieje!"
+      "alreadyregistered": "<strong>Uwaga!</strong> Brak możliwości rejestracji użytkownika.",
+      "nonuniqueuser": "<strong>Błąd</strong> Brak możliwości rejestracji użytkownika."
     }
   },
   "transroute": {
