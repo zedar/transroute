@@ -13,3 +13,6 @@
 [submodule "vendor/dojo/dojox"]
 	path = vendor/dojo/dojox
 	url = git://github.com/dojo/dojox.git
+[submodule "vendor/bootstrap/bootstrap"]
+	path = vendor/bootstrap/bootstrap
+	url = https://github.com/twbs/bootstrap.git
