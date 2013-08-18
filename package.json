@@ -17,6 +17,8 @@
     "socket.io": "*",
     "mongoose": "*",
     "bcrypt": "*",
+    "underscore": "*",
+    "nodemailer": "*",
     "underscore": "*"
   },
   "scripts": {
