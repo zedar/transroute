@@ -48,7 +48,8 @@ console.log("DATABASE URL: ", mongodburl);
 module.exports = {
   db: {
     development: mongodburl,
-    test: mongodburl
+    test: mongodburl,
+    production: mongodburl
   },
   mailer: {
     email: authEmail
