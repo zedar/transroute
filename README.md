@@ -22,6 +22,19 @@ Initialize node.js project
 In order to run project in development mode
 > $ nodemon app.js env=development
 
+## Running production environment
+Application is able to run in production mode with https, redirects http to https.
+> $ export PORT=8443
+  $ export HTTPPORT=8080
+  $ export NODE_ENV=production
+  $ nodemon app.js
+
+In production it is possible to use library forever in order to run app without console.
+> $ npm install -g forever
+  $ forever start app.js
+  $ forever list
+  $ forever stop app.js
+
 ## Running in the cloud
 We use appfog - it is free for small development.
 
