@@ -9,6 +9,7 @@ define([
   "dojo/query",
   "dojo/request",
   "dojo/on",
+  "dojo/topic",
   "dojo/html",
   "dojo/dom-attr",
   "dojo/dom-class",
@@ -17,12 +18,32 @@ define([
   "dijit/_TemplatedMixin",
   "dojo/text!./templates/RegisterPage.html",
   "dojo/i18n!./nls/RegisterPage",
+  "app/common/_PageMixin",
   "dojox/validate/web"
-], function(declare, kernel, lang, event, query, request, on, html, domAttr, domClass, domForm, _WidgetBase, _TemplatedMixin, template, nls) {
-  var page = declare([_WidgetBase, _TemplatedMixin], {
+], function(declare, kernel, lang, event, query, request, on, topic, html, domAttr, domClass, domForm, _WidgetBase, _TemplatedMixin, template, nls, _PageMixin) {
+  //"use strict";
+
+  var page = declare([_WidgetBase, _TemplatedMixin, _PageMixin], {
+    // id: string
+    //  Unique id for dijit.byId()
+    id: null,
+
     // templateString: String
     //  Cached html template
     templateString: template,
+
+    getNavigationNodeIds: function() {
+      // Summary:
+      //  Return list of DOM Node Ids of action buttons/links. This list should be used to attach browser history hash 
+      return [this.loginNode.id];
+    },
+
+    buildRendering: function() {
+      // Summary:
+      //  Construct the UI for the widget. Setting this.domNode
+      topic.publish("app/stylesheets", [{href: "/stylesheets/signup.css", media: "all"}]);      
+      this.inherited(arguments);
+    },
 
     postCreate: function() {
       // Summary:
@@ -43,8 +64,6 @@ define([
       this.alreadyNode.innerHTML = nls.already;
       this.loginNode.innerHTML = nls.login;
 
-      this.usernameNode.focus();
-
       this.own(
         on(this.submitNode, "click", lang.hitch(this, this._onSubmit)),
         on(this.usernameNode, "blur", lang.hitch({
@@ -64,6 +83,14 @@ define([
           controlGroupNode: this.confirmPasswordControlGroupNode, 
           errorNode: this.confirmPasswordErrorNode}, this._onBlur))
       );
+    },
+
+    startup: function() {
+      // Summary:
+      //  Called after DOM fragments have beed actually added to the document.
+      //  We use this method to set the focus of default element.
+      this.inherited(arguments);
+      this.usernameNode.focus();
     },
 
     _onSubmit: function(evt) {
@@ -176,7 +203,7 @@ define([
             return;
           }
           if (result.redirect) {
-            kernel.window.location = result.location;
+            kernel.global.window.location = result.redirect;
             return;
           }
         },
@@ -191,30 +218,6 @@ define([
           }
         }
       );
-    },
-
-    _onBlur: function(evt) {
-      // Summary:
-      //  Clear errors, if any
-      if (this.node.value) {
-        domClass.remove(this.controlGroupNode, "error");
-        domClass.remove(this.errorNode, "help-inline");
-        domClass.add(this.errorNode, "help-inline-hidden");
-      }
-    },
-
-    _usernameValidator: function(value) {
-      // minimum 6 characters
-      var regExp = "^[0-9a-zA-Z.]{6,30}$";
-      var re = new RegExp(regExp, "i");
-      return re.test(value);
-    },
-
-    _passwordValidator: function(value) {
-      // minimum 6 characters
-      var regExp = "^[0-9a-zA-Z.]{6,30}$";
-      var re = new RegExp(regExp, "i");
-      return re.test(value);
     }
   });
   return page;

@@ -24,17 +24,23 @@ module.exports = function(app) {
 
   app.get("/login", start.login);
 
-  app.post("/login", passport.authenticate("local", {
-    successRedirect: "/welcome",
-    failureRedirect: "/login",
-    failureFlash: "login.error.failure"
-  }));
+  // app.post("/login", passport.authenticate("local", {
+  //   successRedirect: "/welcome",
+  //   failureRedirect: "/login",
+  //   failureFlash: "login.error.failure"
+  // }));
+
+  app.post("/login", start.authenticate);
 
   app.get("/logout", start.logout);
 
   app.get("/register", register.show);
   app.post("/register", register.checkUserRegistered, register.checkActivationStatus, register.register);
   app.get("/confirm", register.ensureNotSpam, register.confirm);
+  
+  app.post("/resetpassword", register.resetPassword);
+  app.get("/confirmresetpassword", register.ensureNotSpam, register.confirmResetPassword);
+  app.post("/changepassword", register.changePassword);
   
   app.get("/welcome", ensureAuthenticated, transroute.welcome);
 

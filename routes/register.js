@@ -6,7 +6,8 @@ var common = require("./common.js"),
     config = require("../models/config.js"),
     smtpTransport = config.smtpTransport,
     UserActivation = require("../models/activation.js").UserActivation,
-    User = require("../models/user.js").User;
+    User = require("../models/user.js").User,
+    ResetPassword = require("../models/resetpassword.js").ResetPassword;
 
 module.exports = {
   ensureNotSpam: function(req, res, next) {
@@ -199,5 +200,145 @@ module.exports = {
         }
       }
     });
+  },
+
+  resetPassword: function(req, res, next) {
+    // Summary:
+    //  Reset password. Email has to be given as post body parameter
+    // Method: POST
+    var lng = common.getCurrentLng(req);
+    var data = req.body;
+    if (!_.has(data, "email")) {
+      return res.json(400, {error: lng.i18n.t("resetpassword.error.missingemail")});
+    }
+    // Check if user with the given email is already registered
+    User.findOne({email: data.email}, function(err, user) {
+      if (err) {
+        console.error(__filename, ": resetPassword: ", err);
+        return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+      }
+      if (!user) {
+        console.error(__filename, ": resetPassword: USER NOT FOUND");
+        return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+      }
+      // Create new pending password reset
+      var resetPassword = new ResetPassword({
+        username: user.username,
+        email: user.email,
+        hashedEmail: user.email,
+        verificationStatus: false
+      });
+      resetPassword.save(function(err, data) {
+        if (err) {
+          console.error(__filename, ": ", err);
+          return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+        }
+        // Send email with instructions about how to reset password
+        // get current server path
+        var url = req.protocol + "://" + req.headers.host /*+ req.url*/;
+
+        var mailOptions = {
+          from: 'EuroSpedytor ✔ ' + config.mailer.email, // sender address
+          to: data.email, // list of receivers
+          subject: lng.i18n.t("resetpassword.message.subject") + " ✔", // Subject line
+          text: lng.i18n.t("resetpassword.message.text") + " ✔", // plaintext body
+          html: "<b>" + lng.i18n.t("resetpassword.message.text") + " ✔</b><br />"
+              + lng.i18n.t("resetpassword.message.username") + data.username + "<br />"
+              + lng.i18n.t("resetpassword.message.email") + data.email + "<br />"
+              + "<a href=\""+ url + "/confirmresetpassword?token=" + data.hashedEmail + "\">" + lng.i18n.t("resetpassword.message.click") + "</a>"
+        };
+        smtpTransport.sendMail(mailOptions);  
+
+        return res.json(200, {message: lng.i18n.t("resetpassword.message.success")});
+      });
+    });
+  },
+
+  confirmResetPassword: function(req, res, next) {
+    // Summary:
+    //  Check iff request contains required token, if token is in ResetPassword collection, if token is not yet verified.
+    //  Then display ChangePassword page
+    // Method: GET
+    var data = req.query;
+    var token = data["token"];
+    var lng = common.getCurrentLng(req);
+
+    ResetPassword.findOne({hashedEmail: token}, function(err, data) {
+      if (err) {
+        console.error(__filename, ": err: ", err);
+        res.render("error", {error: lng.i18n.t("resetpassword.error.exception")});
+        return;
+      }
+      if (!data) {
+        res.render("error", {error: lng.i18n.t("resetpassword.error.missingtoken")});
+        return;
+      }
+      if (data.verificationStatus === true) {
+        res.render("error", {error: lng.i18n.t("resetpassword.error.exception")});
+        return;
+      }
+      ResetPassword.update({email: data.email}, {verificationStatus: true}, function(err) {
+        if (err) {
+          console.error(__filename, ": err: ", err);
+          res.render("error", {error: lng.i18n.t("resetpassword.error.exception")});
+          return;
+        }
+        // check if current request is authenticated. If yes logout
+        if (req.isAuthenticated()) {
+          req.logout();
+        }
+        res.render("changepassword", {
+          title: "EuroSpedytor", 
+          lng: lng.lng,
+          lngTitle: lng.i18n.t("menu.lang." + lng.lng), 
+          usr: req.user ? req.user.username : null,
+          token: data.hashedEmail,
+          action: "!changepassword"});
+      });
+    });  
+  },
+
+  changePassword: function(req, res, next) {
+    // Summary:
+    //  Ensure that request contains token. Ensure that the record in PasswordReset is validated.
+    //  Then change password.
+    // Method: POST
+    var lng = common.getCurrentLng(req);
+    var data = req.body;
+    if (!_.has(data, "token")) {
+      return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+    }
+    if (!_.has(data, "password") || !_.has(data, "confirmPassword")) {
+      return res.json(400, {error: lng.i18n.t("resetpassword.error.missingattributes")});
+    }
+    ResetPassword.findOne({hashedEmail: data.token}, function(err, tokenData) {
+      if (err) {
+        console.error(__filename, ": ", err);
+        return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+      }
+      if (!tokenData) {
+        console.error(__filename, ": hashedEmail not found in ResetPassword pending record");
+        return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+      }
+      // check if update or save is required in this case
+      User.findOne({email: tokenData.email}, function(err, user) {
+        if (err) {
+          console.error(__filename, ": ", err);
+          return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+        }
+        if (!user) {
+          console.error(__filename, ": USER NOT FOUND");
+          return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+        }
+        user.password = data.password;
+        user.save(function(err) {
+          if (err) {
+            console.error(__filename, ": ", err);
+            return res.json(400, {error: lng.i18n.t("resetpassword.error.exception")});
+          }
+          return res.json(200);
+        });
+      });
+    });
   }
-}
+};

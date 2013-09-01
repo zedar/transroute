@@ -5,7 +5,7 @@ div.navbar.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.brand.scroller(data-section="body", href="/")
+      a#navhome.brand.scroller(data-section="body", href="/")
         img(src="images/logo_1.png", alt="logo")
       div.nav-collapse.collapse
         ul.nav.pull-right
@@ -13,20 +13,20 @@ div.navbar.navbar-fixed-top
             li
               a.btn-header(href="/welcome", data-section="#footer")= t("menu.welcome")
           li
-            a.scroller(href="/#features", data-section="#features")= t("menu.features")
+            a#navfeatures.scroller(href="/features", target="_self", data-section="#features")= t("menu.features")
           li
-            a.scroller(href="/#pricing", data-section="#pricing")= t("menu.pricing")
+            a#navpricing.scroller(href="/pricing", data-section="#pricing")= t("menu.pricing")
           li
-            a.scroller(href="/#footer", data-section="#footer")= t("menu.contact")
+            a#navfooter.scroller(href="/footer", data-section="#footer")= t("menu.contact")
           if (!usr)
             li
-              a.btn-header(href="/register", data-section="#footer")= t("menu.register")
+              a#navregister.btn-header(href="/register", data-section="#footer")= t("menu.register")
           if (usr)
             li
               a.btn-header(href="/logout", data-section="#footer")= t("menu.logout")
           else
             li
-              a.btn-header(href="/login", data-section="#footer")= t("menu.login")
+              a#navlogin.btn-header(href="/login", data-section="#footer")= t("menu.login")
           li.dropdown
             a.dropdown-toggle(href="#", data-toggle="dropdown")= lngTitle
               span.caret

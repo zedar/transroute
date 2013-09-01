@@ -88,6 +88,21 @@
       "nonuniqueuser": "<strong>Error!</strong> Non unique user."
     }
   },
+  "resetpassword": {
+    "error": {
+      "missingemail": "<strong>Error!</strong> Missing email address",
+      "missingattributes": "<strong>Error!</strong> Missing required parameters",
+      "exception": "<strong>Error!</strong> Unable to reset password.Try it later."
+    },
+    "message": {
+      "subject": "Confirmation - password reset",
+      "text": "Your password is about to be reset. Please confirm this request.",
+      "username": "Your username: ",
+      "email": "Your email: ",
+      "click": "Click here to reset your password",
+      "success": "<strong>Warning!</strong> An email has been send before, please check your email to finish passowrd reset!"
+    }
+  },
   "transroute": {
     "welcome": "Wilkommen auf EuroSPEDYTOR"
   },

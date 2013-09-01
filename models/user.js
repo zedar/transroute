@@ -11,7 +11,6 @@ var userSchema = mongoose.Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   accessToken: {type: String}, // used for remember me
-  created: {type: Boolean, default: false},
   createdAt: {type: Date, default: Date.now}
 });
 
@@ -19,11 +18,6 @@ var userSchema = mongoose.Schema({
 userSchema.pre("save", function(next) {
   var user = this;
 
-  if (!user.created) {
-    // skip password encryption
-    return next();
-  }
-  
   if (!user.isModified("password")) {
     return next();
   }

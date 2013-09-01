@@ -1,0 +1,43 @@
+<div data-dojo-attach-point="focusNode">
+  <div id="box_login">
+    <div class="container">
+      <div class="span12 box_wrapper">
+        <div class="span12 box">
+          <div>
+            <div class="head">
+              <h4 data-dojo-attach-point="titleNode"></h4>
+            </div>
+            <div class="form">
+              <form action="/login" method="POST" data-dojo-attach-point="formNode">
+                <div class="alert-hidden alert-error" data-dojo-attach-point="errorNode"></div>
+                <div class="alert-hidden alert-success" data-dojo-attach-point="successNode"></div>
+                <div class="control-group" data-dojo-attach-point="usernameControlGroupNode">
+                  <div class="controls">
+                    <input type="text" name="username" placeholder="" data-dojo-attach-point="usernameNode">
+                    <span class="help-inline-hidden" data-dojo-attach-point="usernameErrorNode"></span>
+                  </div>
+                </div>
+                <div class="control-group" data-dojo-attach-point="passwordControlGroupNode">
+                  <div class="controls">
+                    <input type="password" name="password" placeholder="" data-dojo-attach-point="passwordNode">
+                    <span class="help-inline-hidden" data-dojo-attach-point="passwordErrorNode"></span>
+                  </div>
+                </div>
+                <div class="remember">
+                  <div class="right">
+                    <a id="navlogin2resetPassword" href="/resetPassword" data-dojo-attach-point="resetPasswordNode"></a>
+                  </div>
+                </div>
+                <input type="submit" value="" data-dojo-attach-point="submitNode">
+              </form>
+            </div>
+          </div>
+        </div>
+        <p class="already">
+          <span data-dojo-attach-point="alreadyNode"></span>
+          <a id="navlogin2register" href="/register" data-dojo-attach-point="registerNode"></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

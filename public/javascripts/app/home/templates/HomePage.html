@@ -1,0 +1,155 @@
+<div data-dojo-attach-point="focusNode">
+  <div id="hero" class="hidden-phone">
+    <div class="container">
+      <div class="row animated fadeInDown">
+        <div class="span12">
+          <div id="mainCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <!-- slide1-->
+              <div class="active item slide1">
+                <div class="row">
+                  <div class="span5">
+                    <h2 data-dojo-attach-point="slideRegisterTitleNode"></h2>
+                    <p data-dojo-attach-point="slideRegisterTextNode"></p>
+                    <a id="navheroregister" class="btn btn-success btn-large" href="/register" data-dojo-attach-point="slideRegisterActionNode"></a>
+                  </div>
+                  <div class="span5">
+                    <img src="/images/slideregister.png" alt="Registration">
+                  </div>
+                </div>
+              </div>
+              <!-- slide2-->
+              <div class="item slide2">
+                <div class="row">
+                  <div class="span5">
+                    <h2 data-dojo-attach-point="slideWatchTitleNode"></h2>
+                    <p data-dojo-attach-point="slideWatchTextNode"></p>
+                    <a class="btn btn-success btn-large" href="/watch" data-dojo-attach-point="slideWatchActionNode"></a>
+                  </div>
+                  <div class="span5 animated fadeInDownBig">
+                    <img src="/images/slidewatch.png" alt="Watch video">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control left" href="#mainCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#mainCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-unit visible-phone">
+    <div class="container">
+      <div class="row">
+        <img src="/images/slideregister.png" alt="Register">
+      </div>
+      <div class="row">
+        <h4 data-dojo-attach-point="slideRegisterTitlePhoneNode"></h4>
+        <a class="btn btn-success btn-block" href="/register"><strong data-dojo-attach-point="slideRegisterActionPhoneNode"></strong></a>
+        <a class="btn btn-info btn-block" href="/watch"><strong data-dojo-attach-point="slideWatchActionPhoneNode"></strong></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="intro" class="hidden-phone">
+    <div class="container">
+      <h1 data-dojo-attach-point="introNode"></h1>
+    </div>
+  </div>
+
+  <div id="features">
+    <div class="container">
+      <h2 class="section_header hidden-phone">
+        <hr class="left visible-desktop"/>
+        <span data-dojo-attach-point="featuresTitleNode"></span>
+        <hr class=" right visible-desktop"/>
+      </h2>
+      <h4 class="section_header visible_phone">
+        <span data-dojo-attach-point="featuresTitlePhoneNode"></span>
+      </h4>
+      <div class="row">
+        <div class="span4 feature">
+          <h3><i class="icon-search"></i><span data-dojo-attach-point="feature1TitleNode"></span></h3>
+          <p class="description" data-dojo-attach-point="feature1DescrNode"></p>
+        </div>
+        <div class="span4 feature">
+          <h3><i class="icon-tasks"></i><span data-dojo-attach-point="feature2TitleNode"></span></h3>
+          <p class="description" data-dojo-attach-point="feature2DescrNode"></p>
+        </div>
+        <div class="span4 feature">
+          <h3><i class="icon-thumbs-up"></i><span data-dojo-attach-point="feature3TitleNode"></span></h3>
+          <p class="description" data-dojo-attach-point="feature3DescrNode"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pricing">
+    <div class="container">
+      <h2 class="section_header hidden-phone">
+        <hr class="left visible-desktop"/>
+        <span data-dojo-attach-point="pricingTitleNode"></span>
+        <hr class="right visible-desktop"/>
+      </h2>
+      <h3 class="section_header visible-phone">
+        <span data-dojo-attach-point="pricingTitlePhoneNode"></span>
+      </h3>
+      <div class="row hidden-phone">
+        <div class="span8 offset3 left">
+          <h2 data-dojo-attach-point="pricingCommingSoonNode"></h2>
+        </div>
+      </div>
+      <div class="row visible-phone">
+        <strong data-dojo-attach-point="pricingCommingSoonPhoneNode"></strong>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          <h3>&nbsp;</h3>
+        </div>
+        <div class="span6 contact_us">
+          <h3 data-dojo-attach-point="footerContactUsNode"></h3>
+          <form class="form-horizontal">
+            <div class="field">
+              <div class="label_field">
+                <label for="inputName" data-dojo-attach-point="footerNameNode"></label>
+              </div>
+              <input id="inputName" type="text">
+            </div>
+            <div class="field">
+              <div class="label_field">
+                <label for="inputEmail" data-dojo-attach-point="footerEmailNode"></label>
+              </div>
+              <input id="inputEmail" type="text">
+            </div>
+            <div class="field">
+              <div class="label_field">
+                <label for="inputComments" data-dojo-attach-point="footerCommentsNode"></label>
+              </div>
+              <input id="inputComments" type="text">
+            </div>
+            <button class="btn" type="submit" data-dojo-attach-point="footerSubmitNode"></button>
+          </form>
+        </div>
+      </div>
+      <hr/>
+      <div class="row copyright">
+        <div class="span5">
+          <h3 class="hidden-phone" data-dojo-attach-point="footerSocialNode"></h3>
+          <a class="social fb" href="#"><i class="i_facebook"></i> </a>
+          <a class="social tw" href="#"><i class="i_twitter"></i> </a>
+          <a class="social yt" href="#"><i class="i_youtube"></i> </a>
+        </div>
+        <div class="span2 offset5 copy">
+          <p data-dojo-attach-point="footerCopyrightNode"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

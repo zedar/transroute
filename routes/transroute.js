@@ -11,6 +11,7 @@ module.exports = {
     res.render("welcome", {
       title: "EuroSpedytor",
       lng: lng.i18n.t("menu.lang." + lng.lng),
+      lngTitle: lng.i18n.t("menu.lang." + lng.lng), 
       usr: req.user ? req.user.username : null,
       url: url
     });

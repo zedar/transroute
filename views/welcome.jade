@@ -3,32 +3,143 @@ extends layout
 block append head
 
 block append content
-  div.alert.alert-success
-    strong= t("transroute.welcome")
-    "Server path: " #{url}
-  div.container
+  div.container.hidden-phone.hidden-tablet
+    hr
+      | Wybierz sekcję
     div.row
-      div.span10
-        div.row
-          div.span10
-            form.form-inline
-              legend= t("wall.communicator.messages.title")
-              textarea.input-xxlarge#message(rows="2", placeholder=t("wall.communicator.messages.message"))
-              &nbsp;
-              button.btn#sendmessage(type="submit")= t("wall.communicator.messages.send")
-        div.row
-          div.span10
-            table.table#messages
-              thead
-                tr
-                  th= t("wall.communicator.messages.from")
-                  th= t("wall.communicator.messages.text")
-              tbody#messages_table_body
+      div.offset1.span2
+        a.btn.btn-primary.btn-custom.btn-xlarge.btn-block(href="#")
+          i.icon-edit.icon.icon-large
+          br
+          span
+            strong
+              | Moje zlecenia
       div.span2
-        div.well
-          strong= t("wall.communicator.users.title")
-          div#onlineUsers
+        a.btn.btn-primary.btn-custom.btn-xlarge.btn-block(href="#")
+          i.icon-pencil.icon.icon-large
+          br
+          span
+            strong
+              | Moje oferty
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-xlarge.btn-block(href="#")
+          i.icon-search.icon.icon-large
+          br
+          span
+            strong
+              | Wyszukaj zlecenia
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-xlarge.btn-block(href="#")
+          i.icon-eye-open.icon.icon-large
+          br
+          span
+            strong
+              | Moje notyfikacje
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-xlarge.btn-block(href="#")
+          i.icon-user.icon.icon-large
+          br
+          span
+            strong
+              | Moje konto
+    hr
+  div.container-fluid.visible-tablet
+    hr
+      | Wybierz sekcję
+    div.row-fluid
+      div.offset1.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-edit.icon-large
+          br
+          span
+            strong
+              | Moje zlecenia
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-pencil.icon-large
+          br
+          span
+            strong
+              | Moje oferty
+          br
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-search.icon-large
+          br
+          span
+            strong
+              | Wyszukaj zlecenia
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-eye-open.icon-large
+          br
+          span
+            strong
+              | Moje notyfikacje
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-user.icon-large
+          br
+          span
+            strong
+              | Moje konto
+    hr
+  div.container-fluid.visible-phone
+    hr
+      | Wybierz sekcję
+    div.row-fluid
+      div.offset1.span1
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-edit.icon
+          br
+          span
+            strong
+              | Moje zlecenia
+      div.span1
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-pencil.icon
+          br
+          span
+            strong
+              | Moje oferty
+      div.span2
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-search.icon
+          br
+          span
+            strong
+              | Wyszukiwarka zleceń
+      div.span1
+        a.btn.btn-primary.btn-custom.btn-block(href="#")
+          i.icon-eye-open.icon
+          br
+          span
+            strong
+              | Moje notyfikacje
+    hr
+
+  //- div.container
+  //-   div.row
+  //-     div.span10
+  //-       div.row
+  //-         div.span10
+  //-           form.form-inline
+  //-             legend= t("wall.communicator.messages.title")
+  //-             textarea.input-xxlarge#message(rows="2", placeholder=t("wall.communicator.messages.message"))
+  //-             &nbsp;
+  //-             button.btn#sendmessage(type="submit")= t("wall.communicator.messages.send")
+  //-       div.row
+  //-         div.span10
+  //-           table.table#messages
+  //-             thead
+  //-               tr
+  //-                 th= t("wall.communicator.messages.from")
+  //-                 th= t("wall.communicator.messages.text")
+  //-             tbody#messages_table_body
+  //-     div.span2
+  //-       div.well
+  //-         strong= t("wall.communicator.users.title")
+  //-         div#onlineUsers
 
 block append common_scripts
-  script(type="text/javascript", src="/socket.io/socket.io.js")
-      
+  script(type="text/javascript", src="/socket.io/socket.io.js")  

@@ -88,6 +88,21 @@
       "nonuniqueuser": "<strong>Błąd</strong> Brak możliwości rejestracji użytkownika."
     }
   },
+  "resetpassword": {
+    "error": {
+      "missingemail": "<strong>Błąd!</strong>Brak adresu email",
+      "missingattributes": "<strong>Błąd</strong> Brak wymaganych danych",
+      "exception": "<strong>Błąd</strong> Brak możliwości odzyskania hasła. Spróbuj później."
+    },
+    "message": {
+      "subject": "Potwierdzenie - odzyskiwanie hasła",
+      "text": "Prosimy o potwierdzenie zgłoszenia odzyskania/resetu hasła do Twojego konta",
+      "username": "Twój login: ",
+      "email": "Twój email: ",
+      "click": "Kliknij w celu przejścia do ekranu wprowadzenia nowego hasła",
+      "success": "<strong>Sukces!</strong> Sprawdź swój email w celu zakończenia procesu odzyskiwania hasła!"
+    }
+  },
   "transroute": {
     "welcome": "Witamy w EuroSPEDYTOR"
   },

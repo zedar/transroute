@@ -8,14 +8,15 @@ html
       link(rel="stylesheet", href="/stylesheets/bootstrap_custom.css")
       link(rel="stylesheet", href="/stylesheets/theme.css")
     
-    link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic")
+      link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic")
   body
-    a.scrolltop(href="#")
+    a#top.scrolltop(href="#")
       span up
 
     include includes/navbar
     
-    block content
+    div#content
+      block content
         
     block common_scripts
     
@@ -24,19 +25,20 @@ html
         var lng = "!{lng}" || "pl";
         lng += "-" + lng;
         var action = "!{action}";
+        var token = "!{token}";
 
         var dojoConfig = {
           async: true,
           locale: lng,
-          //baseUrl: "/dojo/dojo/",
-          baseUrl: "/dojo-release/dojo/",
+          baseUrl: "/dojo/dojo/",
+          //baseUrl: "/dojo-release/dojo/",
           packages: [
-            //{name: "bootstrap", location: "../dojo-bootstrap"},
-            //{name: "app", location: "../../javascripts/app"}
+            {name: "bootstrap", location: "../dojo-bootstrap"},
+            {name: "app", location: "../../javascripts/app"}
           ]
         };
-      //script(src="/dojo/dojo/dojo.js")
-      script(src="/dojo-release/dojo/dojo.js")
+      script(src="/dojo/dojo/dojo.js")
+      //script(src="/dojo-release/dojo/dojo.js")
       script(src="/javascripts/boot.js")
       //include includes/head_js
       //include includes/head_release_js

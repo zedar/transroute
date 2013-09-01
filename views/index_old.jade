@@ -1,0 +1,122 @@
+extends layout
+
+block append head
+  link(rel="stylesheet", href="/stylesheets/animate.css")
+
+block append content
+  div#hero.hidden-phone
+    div.container
+      div.row.animated.fadeInDown
+        div.span12
+          div#mainCarousel.carousel.slide
+            div.carousel-inner
+              <!-- slide1 -->
+              div.active.item.slide1
+                div.row
+                  div.span5
+                    h2= t("index.slideregister.title")
+                    p= t("index.slideregister.text")
+                    a.btn.btn-success.btn-large(href="/register")= t("index.slideregister.action")
+                  div.span5
+                    img(src="/images/slideregister.png", alt="Registration")
+              <!-- slide2 -->
+              div.item.slide2
+                div.row
+                  div.span5
+                    h2= t("index.slidewatch.title")
+                    p= t("index.slidewatch.text")
+                    a.btn.btn-success.btn-large(href="/watch")= t("index.slidewatch.action")
+                  div.span5.animated.fadeInDownBig
+                    img(src="/images/slidewatch.png", alt="Watch video")
+            a.carousel-control.left(href="#mainCarousel", data-slide="prev") &lsaquo;
+            a.carousel-control.right(href="#mainCarousel", data-slide="next") &rsaquo;
+  div.hero-unit.visible-phone
+    div.container
+      div.row
+        img(src="/images/slideregister.png", alt="Registration")
+      div.row
+        h4= t("index.slideregister.title")
+        a.btn.btn-success.btn-block(href="/register")
+          strong= t("index.slideregister.action")
+        a.btn.btn-info.btn-block(href="/watch")
+          strong= t("index.slidewatch.action")
+  div#intro.hidden-phone
+    div.container
+      h1= t("index.intro")
+  div#features
+    div.container
+      <!-- not visible on phone -->
+      h2.section_header.hidden-phone
+        hr.left.visible-desktop
+        span
+          = t("index.features.title")
+        hr.right.visible-desktop
+      <!-- visible on phone -->
+      h4.section_header.visible-phone
+        span= t("index.features.title")
+      div.row
+        div.span4.feature
+          h3
+            i.icon-search
+            = t("index.features.1.title")
+          p.description= t("index.features.1.descr")
+        div.span4.feature
+          h3
+            i.icon-tasks
+            = t("index.features.2.title")
+          p.description= t("index.features.2.descr")
+        div.span4.feature
+          h3
+            i.icon-thumbs-up
+            = t("index.features.3.title")
+          p.description= t("index.features.3.descr")
+  div#pricing
+    div.container
+      <!-- not visible on phone -->
+      h2.section_header.hidden-phone
+          hr.left.visible-desktop
+          span= t("index.pricing.title")
+            small= t("index.pricing.subtitle")
+          hr.right.visible-desktop
+      <!-- visible on phone -->
+      h3.section_header.visible-phone
+        span= t("index.pricing.title")
+      div.row.hidden-phone
+        div.span8.offset3.left
+          h2= t("index.pricing.commingsoon")
+      div.row.visible-phone
+          strong= t("index.pricing.commingsoon")
+  div#footer
+    div.container
+      div.row
+        div.span6
+          h3 &nbsp;
+        div.span6.contact_us
+          h3= t("index.footer.contactus")
+          form.form-horizontal
+            div.field
+              div.label_field
+                label(for="inputName")= t("index.footer.name")
+              input#inputName(type="text")
+            div.field
+              div.label_field
+                label(for="inputEmail")= t("index.footer.email")
+              input#inputEmail(type="text")
+            div.field
+              div.label_field
+                label(for="inputComments")= t("index.footer.comments")
+              input#inputComments(type="text")
+            button.btn(type="submit")= t("index.footer.submit")
+      hr
+      div.row.copyright
+        div.span5
+          h3.hidden-phone= t("index.footer.social")
+          a.social.fb(href="#")
+            i.i_facebook
+          a.social.tw(href="#")
+            i.i_twitter
+          a.social.yt(href="#")
+            i.i_youtube
+        div.span2.offset5.copy
+          p= t("index.footer.copyright")
+block append scripts

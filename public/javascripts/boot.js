@@ -1,4 +1,4 @@
-require(["app/app-release"], function() {
+//require(["app/app-release"], function() {
   require([
     "dojo/parser",
     "app/App",
@@ -8,4 +8,4 @@ require(["app/app-release"], function() {
     var app = new App();
     app.startup(action, "content");
   });
-});
+//});

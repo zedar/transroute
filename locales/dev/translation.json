@@ -91,5 +91,11 @@
         "error": {
             "failure": "reqister.error.failure"
         }
+    },
+    "resetpassword": {
+        "error": {
+            "alreadyactivated": "resetpassword.error.alreadyactivated",
+            "missingtoken": "resetpassword.error.missingtoken"
+        }
     }
 }

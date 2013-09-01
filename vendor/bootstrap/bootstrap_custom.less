@@ -12,3 +12,44 @@
   -moz-transform:scale(1.5);
   -moz-transform-origin: 0 0;
 }
+
+// Add extra large button style
+.btn-xlarge {
+  padding: 18px 20px;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.btn-custom {
+  background-color: hsl(86, 79%, 44%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#daf6b5", endColorstr="#7cc817");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#daf6b5), to(#7cc817));
+  background-image: -moz-linear-gradient(top, #daf6b5, #7cc817);
+  background-image: -ms-linear-gradient(top, #daf6b5, #7cc817);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #daf6b5), color-stop(100%, #7cc817));
+  background-image: -webkit-linear-gradient(top, #daf6b5, #7cc817);
+  background-image: -o-linear-gradient(top, #daf6b5, #7cc817);
+  background-image: linear-gradient(#daf6b5, #7cc817);
+  border-color: #7cc817 #7cc817 hsl(86, 79%, 34%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.66);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container-fluid.visible-tablet a[class^="btn"] {
+  min-height: 73px;  
+}
+
+.container.hidden-phone.hidden-tablet a[class^="btn"] {
+  min-height: 150px;
+}
+
+.icon-large {
+  zoom: 1.5;
+  -moz-transform:scale(1.5);
+  -moz-transform-origin: 0 0;
+}

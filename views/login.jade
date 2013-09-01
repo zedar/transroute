@@ -1,74 +1,7 @@
 extends layout
 
-block append head  
+block append head
   link(rel="stylesheet", href="/stylesheets/signin.css")
 
 block append content
-  div#box_login
-    div.container
-      div.span12.box_wrapper
-        div.span12.box
-          div
-            div.head
-              h4= t("login.title")
-            div.form
-              form(action="/login", method="POST")
-                if (errorMessage)
-                  div.alert.alert-error= errorMessage
-                div.control-group
-                  div.controls
-                    input(type="text", name="username", placeholder=t("login.username"))
-                    span.help-inline-hidden= t("login.error.username")
-                div.control-group
-                  div.controls
-                    input(type="password", name="password", placeholder=t("login.password"))
-                    span.help-inline-hidden= t("login.error.password")
-                div.remember
-                  div.right
-                    a(href="/reset")= t("login.resetpassword")
-                input.btn(type="submit", value=t("login.signin"))
-        p.already= t("login.newaccount")
-          a(href="/register")= t("login.register")
-
-block append scripts
-  script
-    require(["dojo/query", "dojo/on", "dojo/dom-class"], function(query, on, domClass) {
-      var un = query("input[name='username']");
-      if (un && un.length > 0) {
-        un[0].focus();
-      }
-      var pwd = query("input[name='password']");
-      query("input[type='submit']").on("click", function(evt) {
-        var foundErr = false;
-        var nl = un.parents(".control-group").forEach(function(node, index, array) {
-          domClass.remove(node, "error");
-        });
-        nl = un.siblings(".help-inline").forEach(function(node, index, array) {
-          domClass.remove(node, "help-inline");
-          domClass.add(node, "help-inline-hidden");
-        });
-        if (un.length > 0 && !un[0].value) {
-          nl = un.parents(".control-group").forEach(function(node, index, array) {
-            domClass.add(node, "error");
-          });
-          nl = un.siblings(".help-inline-hidden").forEach(function(node, index, array) {
-            domClass.remove(node, "help-inline-hidden");
-            domClass.add(node, "help-inline");
-          });
-          foundErr = true;
-        }
-        if (pwd.length > 0 && !pwd[0].value) {
-          nl = pwd.parents(".control-group").forEach(function(node, index, array) {
-            domClass.add(node, "error");
-          });
-          nl = pwd.siblings(".help-inline-hidden").forEach(function(node, index, array) {
-            domClass.remove(node, "help-inline-hidden");
-            domClass.add(node, "help-inline");
-          });
-          foundErr = true;
-        }
-        if (foundErr) {
-          dojo.stopEvent(evt);
-        }
-      });
-    });
+  //div#content

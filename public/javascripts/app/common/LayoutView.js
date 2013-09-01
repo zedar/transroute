@@ -13,6 +13,13 @@ define([
   return declare([], {
     // Summary:
     //  Add bootstrap javascript support to all dom items placed in the layout of each page
+    
+    getNavigationNodeIds: function() {
+      // Summary:
+      //  Return list of DOM Node Ids of action buttons/links. This list should be used to attach browser history hash 
+      return ["navfeatures", "navpricing", "navfooter", "navlogin", "navregister"];
+    },
+
     create: function(params, srcNodeRef) {
       // Summary:
       //  Find dom nodes and initialize all javascript functionality
