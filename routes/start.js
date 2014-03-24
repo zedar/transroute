@@ -60,5 +60,5 @@ module.exports = {
     req.logout();
     var lng = common.getCurrentLng(req);
     res.redirect("/");
-  },
+  }
 };
