@@ -3,8 +3,8 @@
  */
 var nodemailer = require("nodemailer");
 
-var authEmail ="eurotransroute@gmail.com",
-    authPwd = "transroute!@#zedar";
+var authEmail ="",
+    authPwd = "";
 var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
